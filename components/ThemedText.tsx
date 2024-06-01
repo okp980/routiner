@@ -7,7 +7,7 @@ import translations from "@/i18n/translations"
 export type ThemedTextProps = TextProps & {
   lightColor?: string
   darkColor?: string
-  type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link"
+  type?: "default" | "large" | "title" | "defaultSemiBold" | "subtitle" | "link"
 }
 
 export function ThemedText({
@@ -26,6 +26,7 @@ export function ThemedText({
       style={[
         { color },
         type === "default" ? styles.default : undefined,
+        type === "large" ? styles.large : undefined,
         type === "title" ? styles.title : undefined,
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
@@ -44,10 +45,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
   },
+
   defaultSemiBold: {
     fontSize: 16,
     lineHeight: 24,
     fontWeight: "600",
+  },
+  large: {
+    fontSize: 40,
+    fontWeight: "bold",
+    lineHeight: 48,
   },
   title: {
     fontSize: 32,
