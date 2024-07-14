@@ -2,26 +2,27 @@ import { Text, View } from "react-native"
 
 import Button from "../button/Button"
 import { useAuth } from "@/context/auth"
-import { router } from "expo-router"
+import { Link, router } from "expo-router"
 import EnterIcon from "@/assets/svgs/enter.svg"
 import AppleIcon from "@/assets/svgs/apple.svg"
 import GoogleIcon from "@/assets/svgs/google.svg"
 import FacebookIcon from "@/assets/svgs/facebook.svg"
+import { ThemedText } from "../ThemedText"
 
-export function Navs() {
+export default function Navs() {
   const { updateAuth } = useAuth()
 
   return (
-    <View style={{ gap: 10, marginTop: 30 }}>
+    <View style={{ gap: 15, marginTop: 30 }}>
       <Button
         variant="accent"
         onPress={() => {
-          updateAuth((prev: any) => ({ ...prev, hasOnboarded: true }))
-          router.replace("/")
+          //   updateAuth((prev: any) => ({ ...prev, hasOnboarded: true }))
+          router.push("/sign-in")
         }}
         startIcon={<EnterIcon />}
       >
-        Continue with E-mail
+        continue-with-email
       </Button>
       <View
         style={{
@@ -39,7 +40,7 @@ export function Navs() {
             paddingVertical: 8,
           }}
         >
-          Apple
+          apple
         </Button>
         <Button
           variant="accent"
@@ -50,7 +51,7 @@ export function Navs() {
             paddingVertical: 8,
           }}
         >
-          Google
+          google
         </Button>
         <Button
           variant="accent"
@@ -61,7 +62,7 @@ export function Navs() {
             paddingVertical: 8,
           }}
         >
-          Facebook
+          facebook
         </Button>
       </View>
       <View
@@ -69,37 +70,44 @@ export function Navs() {
           flexDirection: "row",
           flexWrap: "wrap",
           justifyContent: "center",
+          columnGap: 3,
         }}
       >
-        <Text
+        <ThemedText
+          weight="medium"
+          size="small"
           style={{
             color: "#AFB4FF",
-            fontSize: 13,
           }}
         >
-          By continuing you agree to our{" "}
-        </Text>
-        <Button
-          variant="text"
-          textStyle={{
-            fontSize: 13,
-            color: "#AFB4FF",
-            textDecorationLine: "underline",
-          }}
-        >
-          Terms of Services{" "}
-        </Button>
-        <Text style={{ color: "#AFB4FF", fontSize: 13 }}>& </Text>
-        <Button
-          variant="text"
-          textStyle={{
-            fontSize: 13,
-            color: "#AFB4FF",
-            textDecorationLine: "underline",
-          }}
-        >
-          Privacy Policy
-        </Button>
+          by-continuing-you-agree-to-our
+        </ThemedText>
+        <Link href={"/terms-of-service"}>
+          <ThemedText
+            weight="medium"
+            size="small"
+            style={{
+              color: "#AFB4FF",
+              textDecorationLine: "underline",
+            }}
+          >
+            terms-of-service
+          </ThemedText>
+        </Link>
+
+        <Text style={{ color: "#AFB4FF", fontSize: 12 }}>&</Text>
+        <Link href={"/privacy-policy"}>
+          <ThemedText
+            weight="medium"
+            size="small"
+            style={{
+              color: "#AFB4FF",
+              textDecorationLine: "underline",
+            }}
+          >
+            privacy-policy
+          </ThemedText>
+        </Link>
       </View>
     </View>
   )

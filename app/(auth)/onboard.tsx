@@ -14,7 +14,7 @@ import {
 import { onboard } from "@/lib/data"
 import OnboardItem from "@/components/onboard/OnboardItem"
 import OnboardPagination from "@/components/onboard/OnboardPagination"
-import { Navs } from "@/components/onboard/Navs"
+import Navs from "@/components/onboard/Navs"
 
 type Props = {}
 
@@ -31,7 +31,7 @@ const Onboard = (props: Props) => {
   }
 
   return (
-    <SafeAreaView style={[styles.container, { width }]}>
+    <View style={[styles.container, { width }]}>
       <StatusBar style="light" />
       <ImageBackground
         source={require("@/assets/images/bg.png")}
@@ -55,7 +55,7 @@ const Onboard = (props: Props) => {
           <Navs />
         </View>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   )
 }
 const styles = StyleSheet.create({
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     gap: 16,
     overflow: "hidden",
   },
-  bottomContent: { flex: 0.35, paddingHorizontal: 32 },
+  bottomContent: { flex: 0.35, paddingHorizontal: 20 },
 })
 
 export default Onboard

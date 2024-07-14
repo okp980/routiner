@@ -14,7 +14,7 @@ import { getLocales } from "expo-localization"
 import { useColorScheme } from "@/hooks/useColorScheme"
 import { AuthProvider } from "@/context/auth"
 import translations from "@/i18n/translations"
-import { AppState, Platform } from "react-native"
+import { AppState, Platform, SafeAreaView, StatusBar } from "react-native"
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync()
@@ -30,6 +30,12 @@ export default function RootLayout() {
   const colorScheme = useColorScheme()
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    "AirbnbCereal-ExtraBold": require("../assets/fonts/AirbnbCereal_W_Blk.otf"),
+    "AirbnbCereal-Bold": require("../assets/fonts/AirbnbCereal_W_XBd.otf"),
+    "AirbnbCereal-SemiBold": require("../assets/fonts/AirbnbCereal_W_Bd.otf"),
+    "AirbnbCereal-Medium": require("../assets/fonts/AirbnbCereal_W_Md.otf"),
+    "AirbnbCereal-Regular": require("../assets/fonts/AirbnbCereal_W_Bk.otf"),
+    "AirbnbCereal-Light": require("../assets/fonts/AirbnbCereal_W_Lt.otf"),
   })
 
   useEffect(() => {

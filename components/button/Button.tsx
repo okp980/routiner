@@ -10,6 +10,7 @@ import {
   TextStyle,
 } from "react-native"
 import React, { ReactElement } from "react"
+import { ThemedText } from "../ThemedText"
 
 type Props = {
   textStyle?: StyleProp<TextStyle>
@@ -33,7 +34,9 @@ const Button = ({
   if (variant === "text") {
     return (
       <TouchableOpacity {...props} style={btnStyle}>
-        <Text style={[styles.defaultText, textStyle]}>{children}</Text>
+        <ThemedText style={[styles.defaultText, textStyle]}>
+          {children}
+        </ThemedText>
       </TouchableOpacity>
     )
   }
@@ -55,9 +58,9 @@ const Button = ({
         <View style={styles.btnContentContainer}>
           {startIcon && startIcon}
 
-          <Text
+          <ThemedText
+            weight="medium"
             style={[
-              styles.defaultText,
               variant === "primary" ? styles.primaryText : undefined,
               variant === "accent" ? styles.accentText : undefined,
               variant === "outline" ? styles.oulineText : undefined,
@@ -65,7 +68,7 @@ const Button = ({
             ]}
           >
             {children}
-          </Text>
+          </ThemedText>
 
           {endIcon && endIcon}
         </View>

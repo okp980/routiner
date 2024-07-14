@@ -4,17 +4,32 @@ import { I18n } from "i18n-js"
 import { useThemeColor } from "@/hooks/useThemeColor"
 import translations from "@/i18n/translations"
 
+type FontSize =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "b1"
+  | "b2"
+  | "small"
+  | "tiny"
+type FontWeight = "bold" | "medium" | "regular"
+
 export type ThemedTextProps = TextProps & {
   lightColor?: string
   darkColor?: string
-  type?: "default" | "large" | "title" | "defaultSemiBold" | "subtitle" | "link"
+  size?: FontSize
+  weight?: FontWeight
 }
 
 export function ThemedText({
   style,
   lightColor,
   darkColor,
-  type = "default",
+  size = "b2",
+  weight = "regular",
   children,
   ...rest
 }: ThemedTextProps) {
@@ -25,12 +40,21 @@ export function ThemedText({
     <Text
       style={[
         { color },
-        type === "default" ? styles.default : undefined,
-        type === "large" ? styles.large : undefined,
-        type === "title" ? styles.title : undefined,
-        type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
-        type === "subtitle" ? styles.subtitle : undefined,
-        type === "link" ? styles.link : undefined,
+
+        size === "h1" ? styles.h1 : undefined,
+        size === "h2" ? styles.h2 : undefined,
+        size === "h3" ? styles.h3 : undefined,
+        size === "h4" ? styles.h4 : undefined,
+        size === "h5" ? styles.h5 : undefined,
+        size === "h6" ? styles.h6 : undefined,
+        size === "b1" ? styles.b1 : undefined,
+        size === "b1" ? styles.b2 : undefined,
+        size === "small" ? styles.small : undefined,
+        size === "tiny" ? styles.tiny : undefined,
+
+        weight === "bold" ? styles.bold : undefined,
+        weight === "medium" ? styles.medium : undefined,
+        weight === "regular" ? styles.regular : undefined,
         style,
       ]}
       {...rest}
@@ -41,33 +65,53 @@ export function ThemedText({
 }
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
+  h1: {
+    fontSize: 48,
+    lineHeight: 56,
   },
-
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: "600",
-  },
-  large: {
+  h2: {
     fontSize: 40,
-    fontWeight: "bold",
     lineHeight: 48,
   },
-  title: {
+  h3: {
+    fontSize: 36,
+    lineHeight: 40,
+  },
+  h4: {
     fontSize: 32,
-    fontWeight: "bold",
+    lineHeight: 40,
+  },
+  h5: {
+    fontSize: 24,
     lineHeight: 32,
   },
-  subtitle: {
+  h6: {
     fontSize: 20,
-    fontWeight: "bold",
+    lineHeight: 24,
   },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: "#0a7ea4",
+  b1: {
+    fontSize: 18,
+    lineHeight: 24,
+  },
+  b2: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  small: {
+    fontSize: 12,
+    lineHeight: 16,
+  },
+  tiny: {
+    fontSize: 10,
+    lineHeight: 16,
+  },
+  bold: {
+    fontFamily: "AirbnbCereal-SemiBold",
+  },
+  medium: {
+    fontFamily: "AirbnbCereal-Medium",
+  },
+  regular: {
+    fontFamily: "AirbnbCereal-Regular",
   },
 })
