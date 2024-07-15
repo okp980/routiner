@@ -13,7 +13,6 @@ export default function Layout({ children }: Props) {
         style={{
           flex: 1,
           paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-          paddingHorizontal: 20,
         }}
       >
         <StatusBar barStyle="dark-content" />

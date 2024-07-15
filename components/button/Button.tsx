@@ -11,6 +11,7 @@ import {
 } from "react-native"
 import React, { ReactElement } from "react"
 import { ThemedText } from "../ThemedText"
+import { appColor } from "@/constants/Colors"
 
 type Props = {
   textStyle?: StyleProp<TextStyle>
@@ -34,9 +35,7 @@ const Button = ({
   if (variant === "text") {
     return (
       <TouchableOpacity {...props} style={btnStyle}>
-        <ThemedText style={[styles.defaultText, textStyle]}>
-          {children}
-        </ThemedText>
+        <ThemedText style={[textStyle]}>{children}</ThemedText>
       </TouchableOpacity>
     )
   }
@@ -84,19 +83,15 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 20,
     paddingVertical: 16,
-    borderRadius: 35,
-  },
-  defaultText: {
-    fontSize: 16,
-    color: "#040415",
+    borderRadius: 40,
   },
   primary: {
-    backgroundColor: "#3843FF",
+    backgroundColor: appColor.PRIMARY,
   },
   outline: {
     backgroundColor: "transparent",
     borderWidth: 1,
-    borderColor: "#3843FF",
+    borderColor: appColor.PRIMARY,
   },
   accent: {
     backgroundColor: "white",
@@ -109,12 +104,12 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   primaryText: {
-    color: "white",
+    color: appColor.WHITE,
   },
   accentText: {
     color: "#040415",
   },
   oulineText: {
-    color: "#3843FF",
+    color: appColor.PRIMARY,
   },
 })

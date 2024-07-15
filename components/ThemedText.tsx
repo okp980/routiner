@@ -23,6 +23,7 @@ export type ThemedTextProps = TextProps & {
   size?: FontSize
   weight?: FontWeight
 }
+export const i18n = new I18n(translations)
 
 export function ThemedText({
   style,
@@ -34,7 +35,6 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text")
-  const i18n = new I18n(translations)
 
   return (
     <Text
