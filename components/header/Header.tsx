@@ -7,6 +7,7 @@ import LeftCaret from "@/assets/svgs/left-caret.svg"
 import { ThemedText } from "../ThemedText"
 import { NavigationProp, Route } from "@react-navigation/native"
 import { NativeStackNavigationOptions } from "react-native-screens/lib/typescript/native-stack/types"
+import { ThemedView } from "../ThemedView"
 type Props = {
   navigation: NavigationProp<any>
   options: NativeStackNavigationOptions
@@ -14,22 +15,17 @@ type Props = {
   back?: { title: string } | undefined
 }
 const Header = ({ navigation, options, route }: Props) => {
-  const backgroundColor = useThemeColor(
-    { light: appColor.WHITE, dark: appColor.BLACK },
-    "background"
-  )
   const iconColor = useThemeColor({}, "icon")
   return (
-    <View
+    <ThemedView
       style={{
-        backgroundColor,
         height: 135,
         paddingTop: 50,
         paddingHorizontal: 20,
         paddingBottom: 10,
         flexDirection: "row",
         alignItems: "center",
-        borderBottomWidth: 0.7,
+        borderBottomWidth: 0.5,
         borderBottomColor: appColor.BORDER,
         gap: 10,
       }}
@@ -37,7 +33,7 @@ const Header = ({ navigation, options, route }: Props) => {
       <TouchableOpacity
         onPress={router.back}
         style={{
-          borderWidth: 1,
+          borderWidth: 0.5,
           borderRadius: 16,
           borderColor: appColor.BORDER,
           height: 48,
@@ -51,7 +47,7 @@ const Header = ({ navigation, options, route }: Props) => {
       <ThemedText size="h5" weight="bold">
         {options.title}
       </ThemedText>
-    </View>
+    </ThemedView>
   )
 }
 

@@ -3,7 +3,6 @@ import Button from "@/components/button/Button"
 import Input from "@/components/input/Input"
 import Layout from "@/components/layout/Layout"
 import { appColor } from "@/constants/Colors"
-import { useAuth } from "@/context/auth"
 import { Link, router } from "expo-router"
 import React from "react"
 import { View, Text, KeyboardAvoidingView, ScrollView } from "react-native"
@@ -11,7 +10,6 @@ import { View, Text, KeyboardAvoidingView, ScrollView } from "react-native"
 type Props = {}
 
 const SignIn = (props: Props) => {
-  const { updateAuth } = useAuth()
   return (
     <Layout>
       <ScrollView style={{ flex: 1, paddingHorizontal: 20, paddingTop: 50 }}>
@@ -39,12 +37,11 @@ const SignIn = (props: Props) => {
             <Button
               variant="primary"
               onPress={() => {
-                updateAuth((prev: any) => ({ ...prev, authenticated: true }))
-                router.replace("/")
+                router.navigate("/choose-gender")
               }}
               btnStyle={{ marginTop: 40, marginBottom: 20 }}
             >
-              submit
+              continue
             </Button>
           </View>
           <View style={{ alignItems: "center", marginBottom: 60 }}>

@@ -9,11 +9,6 @@ import Header from "@/components/header/Header"
 type Props = {}
 
 export default function AuthLayout({}: Props) {
-  const headerBackgroundColor = useThemeColor(
-    { light: appColor.WHITE, dark: appColor.BLACK },
-    "background"
-  )
-  const iconColor = useThemeColor({}, "icon")
   return (
     <Stack
       screenOptions={{
@@ -28,6 +23,11 @@ export default function AuthLayout({}: Props) {
       />
       <Stack.Screen name="sign-in" options={{ title: "continue-with-email" }} />
       <Stack.Screen name="sign-up" options={{ title: "create-account" }} />
+      <Stack.Screen
+        name="choose-gender"
+        options={{ title: "create-account" }}
+      />
+      <Stack.Screen name="choose-habit" options={{ title: "create-account" }} />
     </Stack>
   )
 }

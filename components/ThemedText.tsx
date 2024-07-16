@@ -48,7 +48,7 @@ export function ThemedText({
         size === "h5" ? styles.h5 : undefined,
         size === "h6" ? styles.h6 : undefined,
         size === "b1" ? styles.b1 : undefined,
-        size === "b1" ? styles.b2 : undefined,
+        size === "b2" ? styles.b2 : undefined,
         size === "small" ? styles.small : undefined,
         size === "tiny" ? styles.tiny : undefined,
 

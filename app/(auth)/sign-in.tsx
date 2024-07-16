@@ -13,40 +13,38 @@ type Props = {}
 const SignIn = (props: Props) => {
   const { updateAuth } = useAuth()
   return (
-    <Layout>
-      <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: 50 }}>
-        <View style={{ flex: 1 }}>
-          <Input
-            label="e-mail"
-            inputProps={{ placeholder: i18n.t("enter-email") }}
-          />
-          <Input
-            label="password"
-            inputProps={{ placeholder: i18n.t("enter-password") }}
-            password
-          />
-          <Link href="/forgot-password" style={{ marginBottom: 40 }}>
-            <ThemedText weight="medium" style={{ color: appColor.BLACK60 }}>
-              i-forgot-my-password
-            </ThemedText>
-          </Link>
-          <Button
-            variant="primary"
-            onPress={() => {
-              updateAuth((prev: any) => ({ ...prev, authenticated: true }))
-              router.replace("/")
-            }}
-          >
-            submit
-          </Button>
-        </View>
-        <View style={{ alignItems: "center", marginBottom: 60 }}>
-          <Link href="/sign-up">
-            <ThemedText weight="medium" style={{ color: appColor.PRIMARY }}>
-              dont-have-account
-            </ThemedText>
-          </Link>
-        </View>
+    <Layout style={{ flex: 1, paddingHorizontal: 20, paddingTop: 50 }}>
+      <View style={{ flex: 1 }}>
+        <Input
+          label="e-mail"
+          inputProps={{ placeholder: i18n.t("enter-email") }}
+        />
+        <Input
+          label="password"
+          inputProps={{ placeholder: i18n.t("enter-password") }}
+          password
+        />
+        <Link href="/forgot-password" style={{ marginBottom: 40 }}>
+          <ThemedText weight="medium" style={{ color: appColor.BLACK60 }}>
+            i-forgot-my-password
+          </ThemedText>
+        </Link>
+        <Button
+          variant="primary"
+          onPress={() => {
+            updateAuth((prev: any) => ({ ...prev, authenticated: true }))
+            router.replace("/")
+          }}
+        >
+          submit
+        </Button>
+      </View>
+      <View style={{ alignItems: "center", marginBottom: 60 }}>
+        <Link href="/sign-up">
+          <ThemedText weight="medium" style={{ color: appColor.PRIMARY }}>
+            dont-have-account
+          </ThemedText>
+        </Link>
       </View>
     </Layout>
   )
