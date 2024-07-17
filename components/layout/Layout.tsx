@@ -1,7 +1,8 @@
-import { Platform, SafeAreaView, StatusBar, ViewProps } from "react-native"
+import { Platform, SafeAreaView, ViewProps } from "react-native"
 import { ThemedView } from "../ThemedView"
 import { ReactElement } from "react"
 import { useColorScheme } from "@/hooks/useColorScheme.web"
+import { StatusBar } from "expo-status-bar"
 
 export default function Layout({ style, children, ...props }: ViewProps) {
   const colorScheme = useColorScheme()
@@ -10,11 +11,12 @@ export default function Layout({ style, children, ...props }: ViewProps) {
       <SafeAreaView
         style={{
           flex: 1,
-          paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+          // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         }}
       >
         <StatusBar
-          barStyle={colorScheme === "dark" ? "dark-content" : "light-content"}
+          style="auto"
+          // style={colorScheme === "dark" ? "dark-content" : "light-content"}
         />
         {children}
       </SafeAreaView>

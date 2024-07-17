@@ -18,6 +18,7 @@ const Header = ({ navigation, options, route }: Props) => {
   const iconColor = useThemeColor({}, "icon")
   return (
     <ThemedView
+      lightColor={appColor.WHITE}
       style={{
         height: 135,
         paddingTop: 50,
@@ -25,7 +26,7 @@ const Header = ({ navigation, options, route }: Props) => {
         paddingBottom: 10,
         flexDirection: "row",
         alignItems: "center",
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 0.7,
         borderBottomColor: appColor.BORDER,
         gap: 10,
       }}
@@ -33,7 +34,7 @@ const Header = ({ navigation, options, route }: Props) => {
       <TouchableOpacity
         onPress={router.back}
         style={{
-          borderWidth: 0.5,
+          borderWidth: 1,
           borderRadius: 16,
           borderColor: appColor.BORDER,
           height: 48,
@@ -42,7 +43,7 @@ const Header = ({ navigation, options, route }: Props) => {
           justifyContent: "center",
         }}
       >
-        <LeftCaret color={iconColor} />
+        <LeftCaret fill={iconColor} />
       </TouchableOpacity>
       <ThemedText size="h5" weight="bold">
         {options.title}

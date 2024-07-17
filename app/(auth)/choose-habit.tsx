@@ -26,7 +26,7 @@ const ChooseHabit = (props: Props) => {
       <ThemedText style={{ marginBottom: 20 }}>
         you-may-add-more-habits-later
       </ThemedText>
-      <View style={{ marginBottom: 50, flex: 1 }}>
+      <View style={{ marginBottom: 50, flex: 1, paddingHorizontal: 5 }}>
         <FlatList
           data={habits}
           numColumns={2}

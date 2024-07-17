@@ -5,7 +5,13 @@ import Layout from "@/components/layout/Layout"
 import { appColor } from "@/constants/Colors"
 import { Link, router } from "expo-router"
 import React from "react"
-import { View, Text, KeyboardAvoidingView, ScrollView } from "react-native"
+import {
+  View,
+  Text,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from "react-native"
 
 type Props = {}
 
@@ -13,7 +19,9 @@ const SignIn = (props: Props) => {
   return (
     <Layout>
       <ScrollView style={{ flex: 1, paddingHorizontal: 20, paddingTop: 50 }}>
-        <KeyboardAvoidingView behavior="padding">
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
           <View style={{ flex: 1 }}>
             <Input
               label="name"
