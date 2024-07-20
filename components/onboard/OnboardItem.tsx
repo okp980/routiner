@@ -1,5 +1,5 @@
 import { Image, View, useWindowDimensions } from "react-native"
-import { ThemedText } from "../ThemedText"
+import { ThemedText } from "../shared/ThemedText"
 
 const OnboardItem = ({ title, description, image }: any) => {
   const { width } = useWindowDimensions()

@@ -22,6 +22,7 @@ export type ThemedTextProps = TextProps & {
   darkColor?: string
   size?: FontSize
   weight?: FontWeight
+  values?: any
 }
 export const i18n = new I18n(translations)
 
@@ -32,6 +33,7 @@ export function ThemedText({
   size = "b2",
   weight = "regular",
   children,
+  values,
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text")
@@ -59,7 +61,7 @@ export function ThemedText({
       ]}
       {...rest}
     >
-      {i18n.t(children as unknown as any)}
+      {i18n.t(`${children}`, values)}
     </Text>
   )
 }
