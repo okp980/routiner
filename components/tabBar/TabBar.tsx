@@ -77,6 +77,7 @@ export default function TabBar({ state, descriptors, navigation }: any) {
 
   return (
     <ThemedView
+      lightColor={appColor.WHITE}
       style={{
         flexDirection: "row",
         height: 64,

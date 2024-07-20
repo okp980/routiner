@@ -2,16 +2,17 @@ import { Tabs } from "expo-router"
 import React from "react"
 import { useColorScheme } from "@/hooks/useColorScheme"
 import TabBar from "@/components/tabBar/TabBar"
+import Header from "@/components/header/Header"
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
+        header: (props: any) => <Header {...props} />,
       }}
       tabBar={(props) => <TabBar {...props} />}
     >
-      <Tabs.Screen name="index" />
+      <Tabs.Screen name="index" options={{ headerShadowVisible: false }} />
       <Tabs.Screen
         name="explore"
         options={{
