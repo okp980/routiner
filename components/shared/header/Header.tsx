@@ -56,11 +56,13 @@ const Header = ({
           <LeftCaret fill={iconColor} />
         </TouchableOpacity>
       )}
-      {options.title && (
-        <ThemedText size="h5" weight="bold">
-          {options.title}
-        </ThemedText>
-      )}
+      <View style={{ flex: 1 }}>
+        {options.title && (
+          <ThemedText size="h5" weight="bold">
+            {options.title}
+          </ThemedText>
+        )}
+      </View>
       {options.headerRight && <options.headerRight />}
     </ThemedView>
   )

@@ -15,7 +15,9 @@ export const appColor = {
   BACKGROUND_DARK: "#040415",
   PRIMARY: "#3843FF",
 
+  BLACK10: "#EAECF0",
   BLACK20: "#CDCDD0",
+  BLACK40: "#9B9BA1",
   BLACK60: "#686873",
   BLACK100: "#040415",
   RED: "#E3524F",

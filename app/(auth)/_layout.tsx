@@ -1,10 +1,10 @@
 import { Stack, router } from "expo-router"
 import React from "react"
 import { TouchableOpacity } from "react-native"
-import { ThemedText } from "@/components/ThemedText"
+import { ThemedText } from "@/components/shared/ThemedText"
 import { useThemeColor } from "@/hooks/useThemeColor"
 import { appColor } from "@/constants/Colors"
-import Header from "@/components/header/Header"
+import Header from "@/components/shared/header/Header"
 
 type Props = {}
 

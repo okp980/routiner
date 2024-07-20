@@ -1,13 +1,13 @@
 import { Text, View } from "react-native"
 
-import Button from "../button/Button"
+import Button from "../shared/button/Button"
 import { useAuth } from "@/context/auth"
 import { Link, router } from "expo-router"
 import EnterIcon from "@/assets/svgs/enter.svg"
 import AppleIcon from "@/assets/svgs/apple.svg"
 import GoogleIcon from "@/assets/svgs/google.svg"
 import FacebookIcon from "@/assets/svgs/facebook.svg"
-import { ThemedText } from "../ThemedText"
+import { ThemedText } from "../shared/ThemedText"
 
 export default function Navs() {
   const { updateAuth } = useAuth()

@@ -1,30 +1,51 @@
-import { Image, StyleSheet, Platform } from "react-native"
-
-import { HelloWave } from "@/components/HelloWave"
-import ParallaxScrollView from "@/components/ParallaxScrollView"
-import { ThemedText } from "@/components/ThemedText"
-import { ThemedView } from "@/components/ThemedView"
-import Layout from "@/components/layout/Layout"
+import Home from "@/components/home"
+import { appColor } from "@/constants/Colors"
+import { useThemeColor } from "@/hooks/useThemeColor"
+import { useNavigation } from "expo-router"
+import { useEffect } from "react"
+import { TouchableOpacity } from "react-native"
+import Calender from "@/assets/svgs/calender.svg"
+import Notification from "@/assets/svgs/notification.svg"
 
 export default function HomeScreen() {
-  return <Layout></Layout>
-}
+  const navigation = useNavigation()
+  const iconColor = useThemeColor({}, "icon")
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-})
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity
+          onPress={() => {}}
+          style={{
+            borderWidth: 1,
+            borderRadius: 16,
+            borderColor: appColor.BORDER,
+            height: 48,
+            width: 48,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Calender fill={iconColor} />
+        </TouchableOpacity>
+      ),
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => {}}
+          style={{
+            borderWidth: 1,
+            borderRadius: 16,
+            borderColor: appColor.BORDER,
+            height: 48,
+            width: 48,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Notification fill={iconColor} />
+        </TouchableOpacity>
+      ),
+    })
+  }, [])
+  return <Home />
+}

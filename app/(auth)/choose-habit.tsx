@@ -8,12 +8,12 @@ import {
   View,
 } from "react-native"
 import React from "react"
-import Layout from "@/components/layout/Layout"
-import { ThemedText } from "@/components/ThemedText"
-import Button from "@/components/button/Button"
+import Layout from "@/components/shared/layout/Layout"
+import { ThemedText } from "@/components/shared/ThemedText"
+import Button from "@/components/shared/button/Button"
 import { router } from "expo-router"
 import { habits } from "@/lib/data"
-import Card from "@/components/card/Card"
+import Card from "@/components/shared/card/Card"
 
 type Props = {}
 

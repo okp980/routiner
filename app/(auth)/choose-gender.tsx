@@ -1,9 +1,9 @@
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native"
 import React from "react"
-import Card from "@/components/card/Card"
-import { ThemedText } from "@/components/ThemedText"
-import Layout from "@/components/layout/Layout"
-import Button from "@/components/button/Button"
+import Card from "@/components/shared/card/Card"
+import { ThemedText } from "@/components/shared/ThemedText"
+import Layout from "@/components/shared/layout/Layout"
+import Button from "@/components/shared/button/Button"
 import { router } from "expo-router"
 
 const ChooseGender = () => {
